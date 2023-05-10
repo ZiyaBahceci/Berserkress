@@ -11,6 +11,10 @@ class BERSERKRESS_API AItem : public AActor
 {
 	GENERATED_BODY()
 	
+private:
+	UPROPERTY(VisibleDefaultsOnly)
+		float cantchange = 50.f;
+	
 public:	
 	AItem();
 	virtual void Tick(float DeltaTime) override;
@@ -18,4 +22,6 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float TestFloat = 29.f; 
 };
