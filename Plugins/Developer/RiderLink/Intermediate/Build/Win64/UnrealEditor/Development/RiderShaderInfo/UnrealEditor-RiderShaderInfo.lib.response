@@ -6,6 +6,6 @@
 /NAME:"UnrealEditor-RiderShaderInfo.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderShaderInfo\RiderShaderInfo.cpp.obj"
-"D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderShaderInfo\Default.rc2.res"
-/OUT:"D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderShaderInfo\UnrealEditor-RiderShaderInfo.lib"
+"D:\Projects\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderShaderInfo\RiderShaderInfo.cpp.obj"
+"D:\Projects\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderShaderInfo\Default.rc2.res"
+/OUT:"D:\Projects\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderShaderInfo\UnrealEditor-RiderShaderInfo.lib"
