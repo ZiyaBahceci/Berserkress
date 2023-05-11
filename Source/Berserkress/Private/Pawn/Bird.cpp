@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Pawn/Bird.h"
+#include "Components/CapsuleComponent.h"
+
 
 ABird::ABird()
 {
