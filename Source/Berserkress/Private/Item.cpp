@@ -11,7 +11,8 @@
 AItem::AItem()
 {
 	PrimaryActorTick.bCanEverTick = true;
-
+	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMeshComponent"));
+	RootComponent = ItemMesh;
 }
 
 void AItem::BeginPlay()
@@ -41,16 +42,16 @@ void AItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Warning, TEXT("DeltaTime: %f"), DeltaTime);	
+	//UE_LOG(LogTemp, Warning, TEXT("DeltaTime: %f"), DeltaTime);	
 
-	/*
+	SetActorRotation(GetActorRotation() + FRotator(0, 1, 0));
+/*	
 	if (GEngine)
 	{
 		FString Name = GetName();	 
 		FString Message = FString::Printf(TEXT("DeltaTime = %f"), DeltaTime);
 		GEngine->AddOnScreenDebugMessage(1, 25.f, FColor::Cyan, Message);
 	}
-	*/
-	SetActorRotation(GetActorRotation() + FRotator(0.f, 0.f, 0.f));
+*/	
 	
 }

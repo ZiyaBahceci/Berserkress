@@ -13,7 +13,10 @@ class BERSERKRESS_API AItem : public AActor
 	
 private:
 	UPROPERTY(VisibleDefaultsOnly)
-		float cantchange = 50.f;
+		float RunningTime;
+
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* ItemMesh;
 	
 public:	
 	AItem();
