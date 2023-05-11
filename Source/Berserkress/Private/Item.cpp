@@ -16,6 +16,7 @@ AItem::AItem()
 
 void AItem::BeginPlay()
 {
+/*
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("BeginPlayCalled!")); 
 	
@@ -33,6 +34,7 @@ void AItem::BeginPlay()
 	Forward = GetActorForwardVector();
 	DRAW_SPHERE(Location);
 	DRAW_LINE(Location, Location + Forward * 2000.f);
+	*/
 }
 
 void AItem::Tick(float DeltaTime)
@@ -41,11 +43,14 @@ void AItem::Tick(float DeltaTime)
 
 	UE_LOG(LogTemp, Warning, TEXT("DeltaTime: %f"), DeltaTime);	
 
+	/*
 	if (GEngine)
 	{
 		FString Name = GetName();	 
 		FString Message = FString::Printf(TEXT("DeltaTime = %f"), DeltaTime);
 		GEngine->AddOnScreenDebugMessage(1, 25.f, FColor::Cyan, Message);
 	}
-
+	*/
+	SetActorRotation(GetActorRotation() + FRotator(0.f, 0.f, 0.f));
+	
 }
