@@ -2,7 +2,7 @@
 
 #include "Pawn/Bird.h"
 #include "Components/CapsuleComponent.h"
-
+#include "Components/SkeletalMeshComponent.h"
 
 ABird::ABird()
 {
@@ -12,6 +12,8 @@ Capsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule"));
 	Capsule->SetCapsuleRadius(15.f);
 SetRootComponent(Capsule);
 
+	BirdMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BirdMesh"));
+	BirdMesh->SetupAttachment(GetRootComponent());
 }
 
 void ABird::BeginPlay()

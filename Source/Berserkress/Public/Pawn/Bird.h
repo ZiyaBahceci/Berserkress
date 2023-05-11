@@ -7,6 +7,7 @@
 #include "Bird.generated.h"
 
 class UCapsuleComponent;
+class USkeletalMeshComponent;
 
 UCLASS()
 class BERSERKRESS_API ABird : public APawn
@@ -24,5 +25,7 @@ private:
 	
 	UPROPERTY(VisibleAnywhere)
  UCapsuleComponent* Capsule;
-	
+
+	UPROPERTY(VisibleAnywhere)
+	USkeletalMeshComponent* BirdMesh;
 };
