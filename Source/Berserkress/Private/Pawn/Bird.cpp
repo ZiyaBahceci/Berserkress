@@ -57,7 +57,18 @@ void ABird::Move(const FInputActionValue& Value)
 		}
 
 }
+void ABird::Ascend(const FInputActionValue& Value)
+{
+	
+	const float DirectionValue = Value.Get<float>();
 
+	if(Controller && (DirectionValue != 0.f))
+	{
+		const FVector Upwards = GetActorUpVector();
+		AddMovementInput(Upwards, DirectionValue); 
+	}
+
+}
 void ABird::Look(const FInputActionValue& Value)
 {
 	FVector2d LookAxisValue = Value.Get<FVector2d>();
@@ -68,8 +79,6 @@ void ABird::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisValue.Y);
 	}
 }
-
-
 
 void ABird::Tick(float DeltaTime)
 {
@@ -85,8 +94,8 @@ void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	{
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ABird::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ABird::Look);
-	}
+		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ABird::Ascend);
 
-	
+	}
 }
 
