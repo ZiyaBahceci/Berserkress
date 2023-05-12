@@ -51,8 +51,8 @@ void ABird::Move(const FInputActionValue& Value)
 	const float DirectionValue = Value.Get<float>();
 
 	if(Controller && (DirectionValue != 0.f))
-		{   
-		FVector Forward = GetActorForwardVector();
+		{
+			const FVector Forward = GetActorForwardVector();
 		AddMovementInput(Forward, DirectionValue); 
 		}
 
@@ -60,7 +60,7 @@ void ABird::Move(const FInputActionValue& Value)
 
 void ABird::Look(const FInputActionValue& Value)
 {
-	const FVector2d LookAxisValue = Value.Get<FVector2d>();
+	FVector2d LookAxisValue = Value.Get<FVector2d>();
 
 	if(GetController())
 	{
