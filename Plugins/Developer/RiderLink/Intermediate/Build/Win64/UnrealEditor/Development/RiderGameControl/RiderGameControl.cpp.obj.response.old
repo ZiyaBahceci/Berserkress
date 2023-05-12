@@ -1,28 +1,28 @@
-D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RiderGameControl\Private\RiderGameControl.cpp
+D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RiderGameControl\Private\RiderGameControl.cpp
 /I .
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RiderGameControl\Private
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\src
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp\src\main
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main\util
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_gen_cpp\src
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\ordered-map\include
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\optional\tl
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\variant\include
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\string-view-lite\include
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\spdlog\include
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\clsocket\src
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\CTPL\include
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RiderGameControl\Private
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\src
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp\src\main
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main\util
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\src\rd_gen_cpp\src
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\ordered-map\include
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\optional\tl
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\variant\include
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\string-view-lite\include
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\spdlog\include
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\clsocket\src
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RD\thirdparty\CTPL\include
 /I Runtime
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RiderLink\Public\Model\Library
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RiderLink\Public\Model\RdEditorProtocol
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RiderLink\Public
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RiderLink\Public\Model\Library
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RiderLink\Public\Model\RdEditorProtocol
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RiderLink\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\HeadMountedDisplay\UHT
 /I Runtime\HeadMountedDisplay\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AugmentedReality\UHT
@@ -293,18 +293,18 @@ D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RiderGameControl\Privat
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\ToolWidgets\UHT
 /I Developer\ToolWidgets\Public
 /I Runtime\Windows
-/I D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Source\RiderGameControl\Public
+/I D:\Projects\Berserkress\Plugins\Developer\RiderLink\Source\RiderGameControl\Public
 /I ThirdParty\mimalloc\include
 /I ThirdParty\LibTiff\Source\Win64
 /I ThirdParty\LibTiff\Source
 /I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"
-/FI"D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderGameControl\Definitions.h"
-/Fo"D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderGameControl\RiderGameControl.cpp.obj"
-/sourceDependencies D:\GitHub\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderGameControl\RiderGameControl.cpp.dep.json
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
+/FI"D:\Projects\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderGameControl\Definitions.h"
+/Fo"D:\Projects\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderGameControl\RiderGameControl.cpp.obj"
+/sourceDependencies D:\Projects\Berserkress\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderGameControl\RiderGameControl.cpp.dep.json
 /Zc:inline
 /nologo
 /Oi
