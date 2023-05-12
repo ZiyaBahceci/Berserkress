@@ -2,10 +2,13 @@
 
 #include "Pawn/Bird.h"
 
-#include "EnhancedInputComponent.h"
-#include "EnhancedInputSubsystems.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/InputComponent.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 
 ABird::ABird()
 {
@@ -18,6 +21,14 @@ SetRootComponent(Capsule);
 	BirdMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BirdMesh"));
 	BirdMesh->SetupAttachment(GetRootComponent());
 
+	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
+	CameraBoom->SetupAttachment(GetRootComponent());
+	CameraBoom->TargetArmLength = 300.f;
+
+	ViewCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ViewCamera"));
+	ViewCamera->SetupAttachment(CameraBoom); 
+	
+
 	AutoPossessPlayer = EAutoReceiveInput::Player0;		
 }
 
@@ -25,19 +36,7 @@ void ABird::BeginPlay()
 {
 	Super::BeginPlay();
 
-	/*
-	APlayerController* PlayerController = Cast<APlayerController>(Controller);
-	if(PlayerController)
-	{
-	UEnhancedInputLocalPlayerSubsystem*  Subsystem =ULocalPlayer::GetSubsystem<	UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
-		if(Subsystem)
-		{
-				
-		}
-	}
-	*/
-
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
@@ -48,24 +47,37 @@ void ABird::BeginPlay()
 
 void ABird::Move(const FInputActionValue& Value)
 {
-	const bool CurrentValue = Value.Get<bool>();
-	if(CurrentValue)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("IA_Move triggered"));
-	}
+	
+	const float DirectionValue = Value.Get<float>();
+
+	if(Controller && (DirectionValue != 0.f))
+		{   
+		FVector Forward = GetActorForwardVector();
+		AddMovementInput(Forward, DirectionValue); 
+		}
+	/*
+	APlayerController* PC = Cast<APlayerController>(GetController());
+	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PC->GetLocalPlayer());
+	// Clear out existing mapping, and add our mapping
+	Subsystem->ClearAllMappings();
+	Subsystem->AddMappingContext(BirdInputMapping, 0);
+	*/
 }
+
+	
+
 
 
 void ABird::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+ 
 }	
 
 void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	 
 	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ABird::Move);

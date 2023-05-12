@@ -3,14 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "InputMappingQuery.h"
+//#include "InputMappingQuery.h"
 #include "GameFramework/Pawn.h"
 #include "InputActionValue.h"
+//#include "GameFramework/SpringArmComponent.h"
 #include "Bird.generated.h"
 
+class UCameraComponent;
 class UCapsuleComponent;
 class USkeletalMeshComponent;
+class UInputMappingContext;
 class UInputAction;
+class USpringArmComponent;
 
 UCLASS()
 class BERSERKRESS_API ABird : public APawn
@@ -25,15 +29,16 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
-UInputMappingContext* BirdMappingContext;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enhanced Input")
+	UInputMappingContext* BirdMappingContext;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enhanced Input")
 	UInputAction* MoveAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enhanced Input")	
+	UInputAction* LookAction;
+	
 	void Move(const FInputActionValue& Value);
-
-	void Look(const FInputActionValue& Value);
 	
 private:
 	
@@ -42,4 +47,11 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	USkeletalMeshComponent* BirdMesh;
+
+	UPROPERTY(VisibleAnywhere)
+	USpringArmComponent*  CameraBoom;
+
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent* ViewCamera;
+	
 };
