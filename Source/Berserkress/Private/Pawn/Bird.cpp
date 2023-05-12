@@ -55,16 +55,19 @@ void ABird::Move(const FInputActionValue& Value)
 		FVector Forward = GetActorForwardVector();
 		AddMovementInput(Forward, DirectionValue); 
 		}
-	/*
-	APlayerController* PC = Cast<APlayerController>(GetController());
-	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PC->GetLocalPlayer());
-	// Clear out existing mapping, and add our mapping
-	Subsystem->ClearAllMappings();
-	Subsystem->AddMappingContext(BirdInputMapping, 0);
-	*/
+
 }
 
-	
+void ABird::Look(const FInputActionValue& Value)
+{
+	const FVector2d LookAxisValue = Value.Get<FVector2d>();
+
+	if(GetController())
+	{
+		AddControllerYawInput(LookAxisValue.X);
+		AddControllerPitchInput(LookAxisValue.Y);
+	}
+}
 
 
 
@@ -81,6 +84,9 @@ void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ABird::Move);
+		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ABird::Look);
 	}
+
+	
 }
 

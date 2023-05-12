@@ -29,16 +29,17 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enhanced Input")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
 	UInputMappingContext* BirdMappingContext;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enhanced Input")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
 	UInputAction* MoveAction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Enhanced Input")	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)	
 	UInputAction* LookAction;
 	
 	void Move(const FInputActionValue& Value);
+	void Look(const FInputActionValue& Value);
 	
 private:
 	
