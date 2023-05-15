@@ -3,9 +3,11 @@
 
 #include "Item.h"
 #include "DrawDebugHelpers.h"
-#include "Berserkress/Berserkress.h"
+#include "Components/SphereComponent.h"
 
 #define THIRTY 30
+
+
 
 // Sets default values
 AItem::AItem()
@@ -13,12 +15,19 @@ AItem::AItem()
 	PrimaryActorTick.bCanEverTick = true;
 	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ItemMeshComponent"));
 	RootComponent = ItemMesh;
+
+	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("SphereCollision"));
+	Sphere->SetupAttachment(GetRootComponent());
 }
 
 void AItem::BeginPlay()
 {
-/*
+
 	Super::BeginPlay();
+
+	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AItem::OnSphereOverlap);
+	Sphere->OnComponentEndOverlap.AddDynamic(this, &AItem::OnSphereEndOverlap);
+	/*
 	UE_LOG(LogTemp, Warning, TEXT("BeginPlayCalled!")); 
 	
 	UWorld* World = GetWorld();
@@ -38,10 +47,32 @@ void AItem::BeginPlay()
 	*/
 }
 
+void AItem::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+const FString OtherActorName = OtherActor->GetName();	
+	if(GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(1, 30.f, FColor::Red, OtherActorName);
+	}
+}
+
+void AItem::OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	const FString OtherActorName = FString("Ending overlap w/ : " + OtherActor->GetName());	
+	if(GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(1, 30.f, FColor::Blue, OtherActorName);
+	}
+}
+
+
+
 void AItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	
 	//UE_LOG(LogTemp, Warning, TEXT("DeltaTime: %f"), DeltaTime);	
 
 	SetActorRotation(GetActorRotation() + FRotator(0, 1, 0));
