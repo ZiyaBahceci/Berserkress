@@ -9,6 +9,8 @@
 
 class UInputMappingContext;
 class UInputAction;
+class USpringArmComponent;
+class UCameraComponent;
 
 UCLASS()
 class BERSERKRESS_API AMorushna : public ACharacter
@@ -19,6 +21,7 @@ public:
 	AMorushna();
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void Tick(float DeltaTime) override;
+	
 
 
 
@@ -31,5 +34,28 @@ protected:
 	UPROPERTY(EditAnywhere, Category=Input)
 	UInputAction* MovementAction;	
 
+	UPROPERTY(EditAnywhere, Category=Input)
+	UInputAction*  LookAction;	
+
+	UPROPERTY(EditAnywhere, Category=Input)
+	UInputAction*  JumpAction;	
+
+	UPROPERTY(EditAnywhere, Category=Input)
+	UInputAction*  AttackAction;
+	
+	UPROPERTY(EditAnywhere, Category=Input)
+	UInputAction*  DodgeAction;
+	
+	UPROPERTY(EditAnywhere, Category=Input)
+	UInputAction*  EquipAction;
+	
 	void Move(const FInputActionValue& Value);
+	void Look(const FInputActionValue& Value);
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	USpringArmComponent*  CameraBoom;
+
+	UPROPERTY(VisibleAnywhere)
+	UCameraComponent* ViewCamera;
 };
