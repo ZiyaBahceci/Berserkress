@@ -4,6 +4,7 @@
 #include "Item.h"
 #include "DrawDebugHelpers.h"
 #include "Components/SphereComponent.h"
+#include "Characters/Morushna.h"
 
 #define THIRTY 30
 
@@ -60,10 +61,8 @@ const FString OtherActorName = OtherActor->GetName();
 void AItem::OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	const FString OtherActorName = FString("Ending overlap w/ : " + OtherActor->GetName());	
-	if(GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(1, 30.f, FColor::Blue, OtherActorName);
-	}
+AMorushna* MorushnaCharacter = Cast<AMorushna>;(OtherActor);	
+
 }
 
 

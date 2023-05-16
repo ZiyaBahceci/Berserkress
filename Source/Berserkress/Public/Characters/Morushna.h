@@ -23,6 +23,11 @@ public:
 	void Equip();
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void Tick(float DeltaTime) override;
+
+	FORCEINLINE inline void SetOverlappingItem(AItem* Item)
+	{
+		OverlappingItem	 = Item;
+	}
 	
 protected:
 	virtual void BeginPlay() override;
@@ -58,5 +63,7 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* ViewCamera;
 
-	//AItem* Overlapping
+	UPROPERTY(VisibleInstanceOnly);
+	AItem* OverlappingItem;
+	
 };
