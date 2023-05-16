@@ -11,6 +11,7 @@ class UInputMappingContext;
 class UInputAction;
 class USpringArmComponent;
 class UCameraComponent;
+class AItem;
 
 UCLASS()
 class BERSERKRESS_API AMorushna : public ACharacter
@@ -19,12 +20,10 @@ class BERSERKRESS_API AMorushna : public ACharacter
 
 public:
 	AMorushna();
+	void Equip();
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void Tick(float DeltaTime) override;
 	
-
-
-
 protected:
 	virtual void BeginPlay() override;
 	
@@ -58,4 +57,6 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* ViewCamera;
+
+	//AItem* Overlapping
 };

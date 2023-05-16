@@ -83,6 +83,13 @@ void AMorushna::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
+void AMorushna::Equip()
+{
+	
+}
+
+
 void AMorushna::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -100,7 +107,7 @@ if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInput
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AMorushna::Jump);
 //	EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Triggered, this, &AMorushna::Attack);
 //	EnhancedInputComponent->BindAction(DodgeAction, ETriggerEvent::Triggered, this, &AMorushna::Dodge);
-//	EnhancedInputComponent->BindAction(EquipAction, ETriggerEvent::Triggered, this, &AMorushna::Equip);
+	EnhancedInputComponent->BindAction(EquipAction, ETriggerEvent::Triggered, this, &AMorushna::Equip);
 
 
 }
