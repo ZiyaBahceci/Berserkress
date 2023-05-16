@@ -75,7 +75,7 @@ void AItem::Tick(float DeltaTime)
 	
 	//UE_LOG(LogTemp, Warning, TEXT("DeltaTime: %f"), DeltaTime);	
 
-	SetActorRotation(GetActorRotation() + FRotator(0, 1, 0));
+//	SetActorRotation(GetActorRotation() + FRotator(0, 1, 0));
 /*	
 	if (GEngine)
 	{

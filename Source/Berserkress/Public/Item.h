@@ -14,16 +14,7 @@ class BERSERKRESS_API AItem : public AActor
 {
 	GENERATED_BODY()
 	
-private:
-	UPROPERTY(VisibleDefaultsOnly)
-		float RunningTime;
 
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* ItemMesh;
-
-UPROPERTY(VisibleAnywhere)
-	USphereComponent* Sphere;
-	
 	
 public:	
 	AItem();
@@ -32,6 +23,9 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent* ItemMesh;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
 	float TestFloat = 29.f;
@@ -41,4 +35,14 @@ protected:
 
 	UFUNCTION()
 	virtual void OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+private:
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"));
+	float RunningTime;
+	
+
+
+	UPROPERTY(VisibleAnywhere)
+	USphereComponent* Sphere;
+
 };
