@@ -8,6 +8,15 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Item.h"
+#include "Weapons/Weapon.h"
+
+enum CharacterState
+{
+	Unequipped,
+	EquippedTwoHanded,
+	EquippedOneHanded
+};
 
 AMorushna::AMorushna()
 {
@@ -86,7 +95,11 @@ void AMorushna::Look(const FInputActionValue& Value)
 
 void AMorushna::Equip()
 {
-	
+	AWeapon* OverlappingWeapon = Cast<AWeapon>(OverlappingItem);
+	if(OverlappingWeapon)
+	{
+		OverlappingWeapon->EquipWeapon(GetMesh(),FName("Hand_RSocket"));
+	}
 }
 
 

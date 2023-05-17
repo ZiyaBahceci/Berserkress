@@ -16,20 +16,12 @@ class BERSERKRESS_API AWeapon : public AItem
 	GENERATED_BODY()
 
 protected:
-	virtual void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
-	{
-		Super::OnSphereOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
+	
+	virtual void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult) override;
 
-	AMorushna* Morushna = Cast<AMorushna>(OtherActor);
-		if(Morushna)
-		{
-			FAttachmentTransformRules TransformRules(EAttachmentRule::SnapToTarget, true);
-			ItemMesh->AttachToComponent(Morushna->GetMesh(), TransformRules, FName("Hand_RSocket"));
-		}
-	}
-	virtual void OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-	{
-		Super::OnSphereEndOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex);
-	}
+	virtual void OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) override;
+
+public:
+	void EquipWeapon(USceneComponent* InParent, FName InSocketName);
 };
 

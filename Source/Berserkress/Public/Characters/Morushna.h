@@ -13,6 +13,7 @@ class USpringArmComponent;
 class UCameraComponent;
 class AItem;
 
+
 UCLASS()
 class BERSERKRESS_API AMorushna : public ACharacter
 {
@@ -24,7 +25,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void Tick(float DeltaTime) override;
 
-	FORCEINLINE inline void SetOverlappingItem(AItem* Item)
+	/*FORCEINLINE inline */  void SetOverlappingItem(AItem* Item)
 	{
 		OverlappingItem	 = Item;
 	}
@@ -57,6 +58,8 @@ protected:
 	void Look(const FInputActionValue& Value);
 
 private:
+//CharacterState State = Unequipped;
+	
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent*  CameraBoom;
 
@@ -65,5 +68,5 @@ private:
 
 	UPROPERTY(VisibleInstanceOnly);
 	AItem* OverlappingItem;
-	
+
 };
