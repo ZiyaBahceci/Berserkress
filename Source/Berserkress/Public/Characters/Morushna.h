@@ -13,6 +13,13 @@ class USpringArmComponent;
 class UCameraComponent;
 class AItem;
 
+UENUM(BlueprintType)
+enum class ECharacterState : uint8
+{
+	ECS_Unequipped UMETA(DisplayName = "Unequipped"),
+	ECS_EquippedTwoHanded UMETA(DisplayName = "Equipped Two Handed Weapon"),
+	ECS_EquippedOneHanded UMETA(DisplayName = "Equipped One Handed Weapon")
+};
 
 UCLASS()
 class BERSERKRESS_API AMorushna : public ACharacter
@@ -25,7 +32,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void Tick(float DeltaTime) override;
 
-	/*FORCEINLINE inline */  void SetOverlappingItem(AItem* Item)
+	FORCEINLINE void SetOverlappingItem(AItem* Item)
 	{
 		OverlappingItem	 = Item;
 	}
@@ -58,7 +65,7 @@ protected:
 	void Look(const FInputActionValue& Value);
 
 private:
-//CharacterState State = Unequipped;
+ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
 	
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent*  CameraBoom;

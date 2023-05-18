@@ -11,12 +11,7 @@
 #include "Item.h"
 #include "Weapons/Weapon.h"
 
-enum CharacterState
-{
-	Unequipped,
-	EquippedTwoHanded,
-	EquippedOneHanded
-};
+
 
 AMorushna::AMorushna()
 {
@@ -54,12 +49,7 @@ void AMorushna::BeginPlay()
 void AMorushna::Move(const FInputActionValue& Value)
 {
 	const FVector2d MovementVector = Value.Get<FVector2d>();
-	/*
-	const FVector Forward = GetActorForwardVector();
-	AddMovementInput(Forward, MovementVector.Y);
-	const FVector Right = GetActorRightVector();
-	AddMovementInput(Right, MovementVector.X);
-	*/
+
 	const FRotator Rotation = Controller->GetControlRotation();
 	const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
 
@@ -70,15 +60,7 @@ void AMorushna::Move(const FInputActionValue& Value)
 	AddMovementInput(RightDirection, MovementVector.X);
 	
 }
-/*
-void AMorushna::Look(const FInputActionValue& Value)
-{
-const FVector2d LookAxisVector = Value.Get<FVector2d>();
 
-AddControllerPitchInput((LookAxisVector.Y));
-	AddControllerYawInput(LookAxisVector.X); 
-}
-*/
 
 void AMorushna::Look(const FInputActionValue& Value)
 {
@@ -99,6 +81,7 @@ void AMorushna::Equip()
 	if(OverlappingWeapon)
 	{
 		OverlappingWeapon->EquipWeapon(GetMesh(),FName("Hand_RSocket"));
+		//CharacterState = ECharacterState::ECS_EquippedOneHanded
 	}
 }
 
@@ -126,4 +109,3 @@ if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInput
 }
 	
 }
-
