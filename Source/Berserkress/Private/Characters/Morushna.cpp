@@ -41,7 +41,7 @@ void AMorushna::BeginPlay()
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			Subsystem->AddMappingContext(MorushnaContext, 0);
-		}
+		}   
 	}
 	
 }
