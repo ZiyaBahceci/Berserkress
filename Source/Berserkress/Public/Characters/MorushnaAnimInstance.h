@@ -13,5 +13,21 @@ UCLASS()
 class BERSERKRESS_API UMorushnaAnimInstance : public UAnimInstance
 {
 	GENERATED_BODY()
+
+public:
+	virtual void NativeInitializeAnimation() override;
+	virtual void NativeUpdateAnimation(float DeltaTime) override; 
+
+	UPROPERTY(BlueprintReadOnly)
+	class AMorushna* Morushna;
+
+	UPROPERTY(BlueprintReadOnly)
+	class UCharacterMovementComponent* MorushnaMovement;
+
+	UPROPERTY(BlueprintReadOnly, Category = Movement)
+	float GroundSpeed;
+	
+	UPROPERTY(BlueprintReadOnly, Category = Movement)
+	bool IsFalling;
 	
 };
